@@ -1,4 +1,4 @@
-# reMARS-MiniPupper
+# mini-pupper-aws
 
 ## Activity 1: Simulate the Dance Robot
 
@@ -14,14 +14,14 @@ choose **ROS Melodic**
 
 ```sh
 cd ~/environment
-git clone https://github.com/mangdangroboticsclub/reMARS-MiniPupper.git
+git clone https://github.com/mangdangroboticsclub/mini-pupper-aws.git
 ```
 
 * Install Dependencies
 
 ```sh
 sudo apt-get update
-cd reMARS-MiniPupper/robot_ws
+cd mini-pupper-aws/robot_ws
 rosdep install --from src -i -y
 ```
 
@@ -36,7 +36,7 @@ sudo chmod +x *
 * Compile Simulation Package
 
 ```sh
-cd ~/environment/reMARS-MiniPupper/simulation_ws/
+cd ~/environment/mini-pupper-aws/simulation_ws/
 colcon build
 ```
 
@@ -48,8 +48,8 @@ colcon build
 # terminal 1
 export DISPLAY=:1
 source /opt/ros/melodic/setup.bash
-source ~/environment/reMARS-MiniPupper/simulation_ws/install/setup.bash
-source ~/environment/reMARS-MiniPupper/robot_ws/install/setup.bash
+source ~/environment/mini-pupper-aws/simulation_ws/install/setup.bash
+source ~/environment/mini-pupper-aws/robot_ws/install/setup.bash
 roslaunch mini_pupper_simulation gazebo.launch
 ```
 
@@ -58,8 +58,8 @@ roslaunch mini_pupper_simulation gazebo.launch
 ```sh
 # terminal 2
 source /opt/ros/melodic/setup.bash
-source ~/environment/reMARS-MiniPupper/simulation_ws/install/setup.bash
-source ~/environment/reMARS-MiniPupper/robot_ws/install/setup.bash
+source ~/environment/mini-pupper-aws/simulation_ws/install/setup.bash
+source ~/environment/mini-pupper-aws/robot_ws/install/setup.bash
 roslaunch mini_pupper_dance dance.launch hardware_connected:=false
 ```
 
@@ -76,7 +76,7 @@ rostopic pub /dance_config std_msgs/String "data: 'demo'"
 * Create a new Python file in the robot application folder. Example: my_demo.py
 
 ```sh
-cd ~/environment/reMARS-MiniPupper/routines
+cd ~/environment/mini-pupper-aws/routines
 touch my_demo.py
 ```
 
@@ -140,16 +140,16 @@ dance_commands = [
 # terminal 1, launch simulation
 export DISPLAY=:1
 source /opt/ros/melodic/setup.bash
-source ~/environment/reMARS-MiniPupper/simulation_ws/install/setup.bash
-source ~/environment/reMARS-MiniPupper/robot_ws/install/setup.bash
+source ~/environment/mini-pupper-aws/simulation_ws/install/setup.bash
+source ~/environment/mini-pupper-aws/robot_ws/install/setup.bash
 roslaunch mini_pupper_simulation gazebo.launch
 ```
 
 ```sh
 # terminal 2, launch robot application
 source /opt/ros/melodic/setup.bash
-source ~/environment/reMARS-MiniPupper/simulation_ws/install/setup.bash
-source ~/environment/reMARS-MiniPupper/robot_ws/install/setup.bash
+source ~/environment/mini-pupper-aws/simulation_ws/install/setup.bash
+source ~/environment/mini-pupper-aws/robot_ws/install/setup.bash
 roslaunch mini_pupper_dance dance.launch hardware_connected:=false
 ```
 
@@ -171,15 +171,15 @@ Please also refer to our pre-build image file, [20220521.1707.V0.2.MiniPupper_re
 # clone this repo
 # if you use our pre-build image file,no need to execute the below 4 line commands
 cd ~
-git clone https://github.com/mangdangroboticsclub/reMARS-MiniPupper.git
-cd reMARS-MiniPupper/robot_ws
+git clone https://github.com/mangdangroboticsclub/mini-pupper-aws.git
+cd mini-pupper-aws/robot_ws
 catkin_make
 ```
 
 ```sh
 # terminal 1
 source /opt/ros/melodic/setup.bash
-source ~/reMARS-MiniPupper/robot_ws/devel/setup.bash
+source ~/mini-pupper-aws/robot_ws/devel/setup.bash
 roslaunch mini_pupper_dance dance.launch dance_config_path:=/home/ubuntu/reMARS_MiniPupper/routines
 ```
 
