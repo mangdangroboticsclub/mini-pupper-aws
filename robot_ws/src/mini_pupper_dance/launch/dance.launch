@@ -8,9 +8,13 @@
   </node>
   <node pkg="mini_pupper_dance" type="pose_controller.py" name="pose_controller" output="screen"/>
   <!--node name="sound_play_node" pkg="sound_play" type="soundplay_node.py" output="screen"/-->
-
   <group if="$(arg hardware_connected)">
     <include file="$(find mini_pupper)/launch/bringup.launch" />
   </group>
+
+  <include file="$(find aws_iot_mqtt_bridge)/launch/aws_iot_bridge.launch">
+    <arg name="bridge_params" value="/config/aws_iot_params.yaml" />
+  </include>
+
 </launch>
 

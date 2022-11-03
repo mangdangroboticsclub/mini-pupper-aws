@@ -24,7 +24,7 @@ class dance_demo:
         self.commands = []
         self.ready_to_dance = 0
         self.dance_config_sub = rospy.Subscriber("/dance_config", String, self.dance_config_callback, queue_size = 10)
-        self.velocity_publisher = rospy.Publisher('cmd_vel', Twist, queue_size=100)
+        self.velocity_publisher = rospy.Publisher('cmd_vel/smooth', Twist, queue_size=100)
         self.pose_publisher = rospy.Publisher('target_body_pose', Pose, queue_size=100)
 
     def dance_config_callback(self,data):

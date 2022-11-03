@@ -22,8 +22,8 @@ COPY scripts/simulation-entrypoint.sh simulation-entrypoint.sh
 RUN sh -c 'sudo chmod +x simulation-entrypoint.sh && sudo chown robomaker:robomaker simulation-entrypoint.sh'
 
 # Cache models
-RUN sh -c "mkdir -p /home/robomaker/.gazebo/models"
-COPY models /home/robomaker/.gazebo/models
+# RUN sh -c "mkdir -p /home/robomaker/.gazebo/models"
+# COPY models /home/robomaker/.gazebo/models
 
-CMD roslaunch mini_pupper_gazebo gazebo.launch
+CMD roslaunch mini_pupper_simulation gazebo.launch
 ENTRYPOINT [ "/home/robomaker/workspace/simulation_ws/simulation-entrypoint.sh" ]
