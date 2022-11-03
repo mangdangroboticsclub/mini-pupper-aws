@@ -14,7 +14,7 @@ choose **ROS Melodic**
 
 ```sh
 cd ~/environment
-git clone https://github.com/mangdangroboticsclub/reMARS-MiniPupper.git
+git clone https://github.com/mrkoz/reMARS-MiniPupper
 ```
 
 * Install Dependencies
@@ -171,7 +171,7 @@ Please also refer to our pre-build image file, [20220521.1707.V0.2.MiniPupper_re
 # clone this repo
 # if you use our pre-build image file,no need to execute the below 4 line commands
 cd ~
-git clone https://github.com/mangdangroboticsclub/reMARS-MiniPupper.git
+git clone https://github.com/mrkoz/reMARS-MiniPupper.git
 cd reMARS-MiniPupper/robot_ws
 catkin_make
 ```

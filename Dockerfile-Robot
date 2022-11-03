@@ -4,10 +4,13 @@
 # Source is previously built image
 FROM mini-pupper-base:1.0
 
+RUN sudo apt-get install -y python-pip apt-utils
+RUN pip install Inject==3.5.4
+
 ADD robot_ws/src /home/robomaker/workspace/robot_ws/src
 ADD simulation_ws/src /home/robomaker/workspace/simulation_ws/src
 RUN sudo rosdep fix-permissions && rosdep update
-RUN sudo apt update
+
 WORKDIR /home/robomaker/workspace/robot_ws
 
 
@@ -20,8 +23,5 @@ RUN sh -c 'sudo chmod +x robot-entrypoint.sh && sudo chown robomaker:robomaker r
 
 RUN sudo mkdir -p /config/certs/
 
-ENV HARDWARE=false
-ENV DANCE_CONFIG=/config/routines
-
-CMD roslaunch mini_pupper_dance dance.launch hardware_connected:=${HARDWARE} dance_config_path:=${DANCE_CONFIG}
+CMD roslaunch mini_pupper_dance dance.launch hardware_connected:=false
 ENTRYPOINT [ "/home/robomaker/workspace/robot_ws/robot-entrypoint.sh" ]
