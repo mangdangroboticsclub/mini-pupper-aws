@@ -1,0 +1,46 @@
+---
+RecipeFormatVersion: '2020-01-25'
+ComponentName: com.example.ros.pupper.dance
+ComponentVersion: '1.0.0'
+ComponentDescription: 'The ROS Pupper Dance Application'
+ComponentPublisher: Amazon
+ComponentDependencies:
+  aws.greengrass.DockerApplicationManager:
+    VersionRequirement: ">=2.0.0 <2.1.0"
+  aws.greengrass.TokenExchangeService:
+    VersionRequirement: ">=2.0.0 <2.1.0"
+ComponentConfiguration:
+  DefaultConfiguration:
+    auto_start: True
+Manifests:
+  - Platform:
+      os: all
+    Lifecycle:
+        Bootstrap:
+          RequiresPrivilege: True
+          Script: |
+            echo "Bootstrapping the dance application! as root This runs only once during the deployment."
+            mkdir -p /home/ggc_user/routines/
+            cp {artifacts:path}/*.py /home/ggc_user/routines/
+            cp {artifacts:path}/aws_iot_params.yaml /home/ggc_user/aws_iot_params.yaml
+            chown -R ggc_user:ggc_group /home/ggc_user/routines/
+            cat << EOF > {artifacts:path}/.env
+            AUTO_START={configuration:/auto_start}
+            SVCUID=$SVCUID
+            AWS_GG_NUCLEUS_DOMAIN_SOCKET_FILEPATH_FOR_COMPONENT=$AWS_GG_NUCLEUS_DOMAIN_SOCKET_FILEPATH_FOR_COMPONENT
+            EOF
+            chown ggc_user:ggc_group {artifacts:path}/.env
+        Install:
+          Script: |
+            echo "Installing the dance application! This will run everytime the Greengrass core software is started."
+        Run:
+          Script: |
+            echo "Running the dance application! This is the main application execution script."
+            docker compose -f {artifacts:path}/docker-compose.yaml up
+        Shutdown: |
+            echo "Shutting down the dance application! This will run each time the component is stopped."
+            docker compose -f {artifacts:path}/docker-compose.yaml down
+    Artifacts:
+      - URI: "s3://S3_BUCKET_PLACEHOLDER/artifacts/docker-compose.yaml"
+      - URI: "s3://S3_BUCKET_PLACEHOLDER/artifacts/aws_iot_params.yaml"
+      - URI: "s3://S3_BUCKET_PLACEHOLDER/artifacts/routines/DANCE_ROUTINE_PLACEHOLDER"

@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<launch>
+  <node name="sound_play_node" pkg="sound_play" type="soundplay_node.py" output="screen"/>
+  <node name="music" pkg="mini_pupper_music" type="music.py" output="screen"/>
+</launch>

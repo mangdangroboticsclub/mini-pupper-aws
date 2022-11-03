@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<launch>
+  <node name="musicPlay" pkg="mini_pupper_music" type="music" output="screen"/>
+</launch>
