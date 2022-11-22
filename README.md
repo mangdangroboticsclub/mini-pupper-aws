@@ -1,8 +1,8 @@
 # MiniPupper AWS
 
-## Activity 1: Simulate the Dance Robot
+The README is out of date.
 
-The README refers to the [Building Cloud Connected Robots](https://catalog.us-east-1.prod.workshops.aws/workshops/fa208b8e-83d6-4cc1-8356-bfa5b6184fae/en-US/introduction)  of AWS Workshop Studio
+## Activity 1: Simulate the Dance Robot
 
 ### Step 1: Setup the RoboMaker IDE
 
