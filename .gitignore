@@ -84,3 +84,5 @@ CATKIN_IGNORE
 # Support for Project snippet scope
 
 # End of https://www.toptal.com/developers/gitignore/api/cloud9,visualstudiocode,ros
+
+.DS_Store
