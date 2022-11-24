@@ -50,7 +50,7 @@ export DISPLAY=:1
 source /opt/ros/melodic/setup.bash
 source ~/environment/mini-pupper-aws/simulation_ws/install/setup.bash
 source ~/environment/mini-pupper-aws/robot_ws/install/setup.bash
-roslaunch mini_pupper_simulation gazebo.launch
+roslaunch mini_pupper_simulation aws_stage.launch
 ```
 
 * Launch Robot Application (Dancing Demo)
@@ -142,7 +142,7 @@ export DISPLAY=:1
 source /opt/ros/melodic/setup.bash
 source ~/environment/mini-pupper-aws/simulation_ws/install/setup.bash
 source ~/environment/mini-pupper-aws/robot_ws/install/setup.bash
-roslaunch mini_pupper_simulation gazebo.launch
+roslaunch mini_pupper_simulation aws_stage.launch
 ```
 
 ```sh
@@ -153,7 +153,7 @@ source ~/environment/mini-pupper-aws/robot_ws/install/setup.bash
 roslaunch mini_pupper_dance dance.launch hardware_connected:=false
 ```
 
-* Send a Message to Make Robot Dancing
+* Send a Message to Make Robot Dance
 
 ```sh
 # terminal 3, send a message to specify which dance routine you choose
@@ -180,7 +180,7 @@ catkin_make
 # terminal 1
 source /opt/ros/melodic/setup.bash
 source ~/mini-pupper-aws/robot_ws/devel/setup.bash
-roslaunch mini_pupper_dance dance.launch dance_config_path:=/home/ubuntu/reMARS_MiniPupper/routines
+roslaunch mini_pupper_dance dance.launch dance_config_path:=/home/ubuntu/mini-pupper-aws/routines
 ```
 
 ```sh
@@ -201,3 +201,6 @@ sudo docker run -id --name ros_noetic --network host \
 0nhc/mnpp:test
 sudo xhost +
 ```
+# Attribution
+
+["Simple Concert Stage"](https://sketchfab.com/3d-models/simple-concert-stage-d5c7733d06d24947bf60b3a0fe203f69) by [mertbbicak](https://sketchfab.com/mertbbicak) is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). AWS banner has been added to the model.
