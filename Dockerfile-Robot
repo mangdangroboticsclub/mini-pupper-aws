@@ -23,5 +23,8 @@ RUN sh -c 'sudo chmod +x robot-entrypoint.sh && sudo chown robomaker:robomaker r
 
 RUN sudo mkdir -p /config/certs/
 
+# xterm for interactive debug
+RUN sudo apt install -y xterm
+
 CMD roslaunch mini_pupper_dance dance.launch hardware_connected:=false
 ENTRYPOINT [ "/home/robomaker/workspace/robot_ws/robot-entrypoint.sh" ]
