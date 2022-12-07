@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
   <arg name="hardware_connected"	default="true" />
-  <arg name="dance_config_path"	default="/home/ubuntu/environment/mini-pupper-aws/routines" />
+  <arg name="dance_config_path"	default="$(find mini_pupper_dance)/routines" />
 
   <node pkg="mini_pupper_dance" type="dance.py" respawn="true" name="lets_dance" output="screen">
     <param name="~dance_config_path" value="$(arg dance_config_path)"/>
