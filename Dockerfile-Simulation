@@ -8,6 +8,12 @@ ADD simulation_ws/src /home/robomaker/workspace/simulation_ws/src
 ADD robot_ws/src /home/robomaker/workspace/robot_ws/src
 RUN sudo rosdep fix-permissions && rosdep update
 
+# because of dependency on mini_pupper_description, build robot_ws
+WORKDIR /home/robomaker/workspace/robot_ws
+
+# Build the Robot application
+RUN /bin/bash -c "source /opt/ros/melodic/setup.bash && rosdep install --rosdistro melodic --from-paths src --ignore-src -r -y && colcon build && sudo apt clean"
+
 WORKDIR /home/robomaker/workspace/simulation_ws
 
 RUN sudo apt install ros-melodic-gazebo-* ros-melodic-ros-control -y
@@ -21,9 +27,8 @@ RUN /bin/bash -c "source /opt/ros/melodic/setup.bash && rosdep install --rosdist
 COPY scripts/simulation-entrypoint.sh simulation-entrypoint.sh
 RUN sh -c 'sudo chmod +x simulation-entrypoint.sh && sudo chown robomaker:robomaker simulation-entrypoint.sh'
 
-# Cache models
-RUN sh -c "mkdir -p /home/robomaker/.gazebo/models"
-COPY models /home/robomaker/.gazebo/models
+# xterm for interactive debug
+RUN sudo apt install -y xterm
 
 CMD roslaunch mini_pupper_gazebo gazebo.launch
 ENTRYPOINT [ "/home/robomaker/workspace/simulation_ws/simulation-entrypoint.sh" ]

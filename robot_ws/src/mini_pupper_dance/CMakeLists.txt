@@ -11,6 +11,6 @@ install(PROGRAMS
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
-install(DIRECTORY scripts launch
+install(DIRECTORY scripts launch routines
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
