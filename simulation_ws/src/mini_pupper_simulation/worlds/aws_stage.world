@@ -56,7 +56,7 @@
           <geometry>
             <mesh>
               <uri>model://concret_stage.dae</uri>
-              <scale>0.2 0.2 0.2</scale>
+              <scale>0.5 0.5 0.5</scale>
             </mesh>
           </geometry>
         </visual>
@@ -67,7 +67,7 @@
           <geometry>
             <mesh>
               <uri>model://concret_stage.dae</uri>
-              <scale>0.2 0.2 0.2</scale>
+              <scale>0.5 0.5 0.5</scale>
             </mesh>
           </geometry>
           <surface>
