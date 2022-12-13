@@ -30,5 +30,5 @@ RUN sh -c 'sudo chmod +x simulation-entrypoint.sh && sudo chown robomaker:roboma
 # xterm for interactive debug
 RUN sudo apt install -y xterm
 
-CMD roslaunch mini_pupper_simulation gazebo.launch
+CMD roslaunch mini_pupper_simulation aws_stage.launch
 ENTRYPOINT [ "/home/robomaker/workspace/simulation_ws/simulation-entrypoint.sh" ]
