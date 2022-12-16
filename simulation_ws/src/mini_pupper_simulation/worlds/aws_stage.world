@@ -55,7 +55,7 @@
         <visual name='visual'>
           <geometry>
             <mesh>
-              <uri>model://concret_stage.dae</uri>
+              <uri>model://concrete_stage.dae</uri>
               <scale>0.5 0.5 0.5</scale>
             </mesh>
           </geometry>
@@ -66,7 +66,7 @@
           <pose frame=''>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>model://concret_stage.dae</uri>
+              <uri>model://concrete_stage_collision.dae</uri>
               <scale>0.5 0.5 0.5</scale>
             </mesh>
           </geometry>
