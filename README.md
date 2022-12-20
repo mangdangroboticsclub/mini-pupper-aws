@@ -50,6 +50,8 @@ export DISPLAY=:1
 source /opt/ros/melodic/setup.bash
 source ~/environment/mini-pupper-aws/simulation_ws/install/setup.bash
 source ~/environment/mini-pupper-aws/robot_ws/install/setup.bash
+# Add meshes to Gazbo paths
+export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:$(rospack find mini_pupper_simulation)/worlds/meshes
 roslaunch mini_pupper_simulation aws_stage.launch
 ```
 
